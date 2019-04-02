@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
     def new
+        redirect_to user_path(current_user) if user_signed_in?
         @user = User.new
     end
 
@@ -12,6 +13,9 @@ class UsersController < ApplicationController
         else
             render 'new'
         end
+    end
+
+    def show
     end
 
     private

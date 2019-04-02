@@ -14,23 +14,23 @@
   <!-- Conteudo exibido em telas maiores e que serao escondidos em telas menores -->
   <div class="collapse navbar-collapse" id="expanded-menu">
     <ul class="nav navbar-nav">
-      <%# if !user_signed_in? %>
+      <% if !user_signed_in? %>
         <li class="active">
           <%= link_to 'Nova Conta', new_user_path %>
         </li>
-      <%# end %>
+      <% end %>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
 
-      <%# if !user_signed_in? %>
+      <% if !user_signed_in? %>
         <li>
-          <%= link_to 'Entrar', '#' %>
+          <%= link_to 'Entrar', entrar_path %>
         </li
-      <%# else %>
+      <% else %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            bem vindo, <%#= current_user.name %> <span class="caret"></span>
+            bem vindo, <%= current_user.name %> <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <li>
@@ -41,11 +41,11 @@
             </li>
             <li class="divider" role="separator"></li>
             <li>
-              <%= link_to 'Sair', '#', method: :delete %>
+              <%= link_to 'Sair', sair_path, method: :delete %>
             </li>
           </ul>
         </li>
-      <%# end %>
+      <% end %>
 
     </ul>
 

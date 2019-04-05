@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    before_action :require_logged_in_user, only: [:edit, :update]
+
     def new
         redirect_to user_path(current_user) if user_signed_in?
         @user = User.new
@@ -16,6 +18,18 @@ class UsersController < ApplicationController
     end
 
     def show
+    end
+
+    def edit
+    end
+
+    def update
+        if current_user.update(user_params)
+            flash[:success] = 'Dados atualizados'
+            redirect_to user_contacts_path(current_user)
+        else
+            render 'edit'
+        end
     end
 
     private

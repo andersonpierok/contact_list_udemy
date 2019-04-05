@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'entrar', to: 'sessions#create'
   delete 'sair', to: 'sessions#destroy'
 
-  resources :contacts
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:show, :new, :create, :edit, :update] do
+    resources :contacts, only: [:index, :new, :create, :edit, :update, :destroy]
+  end
 end

@@ -34,10 +34,10 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <%= link_to 'Minha Pagina', '#' %>
+              <%= link_to 'Minha Pagina', user_contacts_path(current_user) %>
             </li>
             <li>
-              <%= link_to 'Editar', '#' %>
+              <%= link_to 'Editar', edit_user_path(current_user) %>
             </li>
             <li class="divider" role="separator"></li>
             <li>
